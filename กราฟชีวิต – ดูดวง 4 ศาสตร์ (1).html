@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>กราฟชีวิต – ดูดวง 4 ศาสตร์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5f1;--card:#fff;--ink:#17302e;--mute:#5b6e6b;--line:#d9e0dc;--accent:#d98e04;--teal:#1f6f68;--low:#b5473b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b1a;--card:#162826;--ink:#e6eeeb;--mute:#99aeaa;--line:#294240;--accent:#f0a920;--teal:#5cc2b8;--low:#e0786a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1b1a;--card:#162826;--ink:#e6eeeb;--mute:#99aeaa;--line:#294240;--accent:#f0a920;--teal:#5cc2b8;--low:#e0786a;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Sarabun,"Noto Sans Thai",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:28px 16px 48px}
+h1,h2,.pill b,.big{font-family:Prompt,Sarabun,system-ui,sans-serif;font-weight:600}
+h1{font-size:clamp(34px,8vw,54px);line-height:1.15;margin:8px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--mute);margin:0 0 22px;max-width:52ch}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+label{display:grid;gap:4px;font-size:14px;color:var(--mute)}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:44px;width:100%}
+.chk{grid-column:1/-1;display:flex;gap:8px;align-items:center;font-size:14px}
+.chk input{width:auto;min-height:0}
+button{font:inherit;cursor:pointer}
+.go{background:var(--accent);color:#1a1200;border:0;border-radius:8px;min-height:44px;font-weight:600;padding:0 18px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:22px 0 14px;padding-bottom:4px}
+.tabs button{flex:0 0 auto;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;min-height:44px}
+.tabs button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--bg);font-weight:600}
+#out[hidden]{display:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.big{font-size:clamp(20px,4.5vw,26px);margin:0 0 4px}
+.muted{color:var(--mute);font-size:14px;margin:0}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;text-align:center}
+.pillars div{border:1px solid var(--line);border-radius:10px;padding:8px 2px}
+.pillars b{display:block;font-size:24px;line-height:1.3;font-family:"Noto Serif SC","Songti SC",serif}
+.pillars span{font-size:12px;color:var(--mute)}
+svg{width:100%;height:auto;display:block;touch-action:pan-y}
+.ax{stroke:var(--line)}.tx{fill:var(--mute);font-size:11px}
+.ln{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round}
+.ar{fill:var(--accent);opacity:.13}
+.nw{stroke:var(--teal);stroke-dasharray:4 4}
+#rd{min-height:24px;font-size:14px;color:var(--mute);margin:2px 0 0}
+ol{list-style:none;margin:0;padding:0}
+.r{display:grid;grid-template-columns:78px 1fr;gap:4px 12px;padding:12px 10px;border-bottom:1px solid var(--line);position:relative}
+.r:last-child{border:0}
+.r.now{background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:10px;border-color:transparent}
+.ag{font-family:Prompt,sans-serif;font-weight:500;font-size:14px;color:var(--teal)}
+.r b{font-weight:600}.r p{margin:0;font-size:15px;color:var(--mute)}
+.r i{grid-column:2;height:5px;border-radius:3px;background:var(--line);position:relative;overflow:hidden;margin-top:2px}
+.r i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--teal)}
+.r i.lo::after{background:var(--low)}
+.card h2{font-size:18px;margin:0 0 4px}.yh{display:flex;gap:8px;margin:10px 0 14px}.yh select{flex:1}.yh button{width:44px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;font-size:20px}.as{padding:10px 0;border-top:1px solid var(--line)}.as div{display:flex;justify-content:space-between;gap:8px;font-weight:600}.st{color:var(--accent);letter-spacing:2px;white-space:nowrap}.as p{margin:2px 0 0;font-size:15px}
+.note{font-size:13px;color:var(--mute);margin-top:22px}
+</style>
+</head>
+<body>
+<main>
+<h1>กราฟชีวิต</h1>
+<p class="sub">ใส่วันเกิดครั้งเดียว ดูเส้นขึ้น-ลงของชีวิตได้ 4 ศาสตร์ ไทย จีน เลขศาสตร์ และโหราศาสตร์สากล</p>
+<form id="f">
+<label>วันเกิด (ค.ศ.)<input type="date" id="dob" required min="1900-01-01"></label>
+<label>เวลาเกิด (ถ้ารู้)<input type="time" id="tob"></label>
+<label>เพศ (ใช้กับศาสตร์จีน)<select id="g"><option value="m">ชาย</option><option value="f">หญิง</option></select></label>
+<button class="go" type="submit">ดูกราฟชีวิต</button>
+<label class="chk"><input type="checkbox" id="night">เกิดวันพุธกลางคืน (ใช้ดาวราหูตามหลักไทย)</label>
+</form>
+<div class="tabs" role="group" aria-label="เลือกศาสตร์">
+<button type="button" data-t="thai" aria-pressed="true">ไทย</button>
+<button type="button" data-t="bazi" aria-pressed="false">จีน ปาจื้อ</button>
+<button type="button" data-t="num" aria-pressed="false">เลขศาสตร์</button>
+<button type="button" data-t="west" aria-pressed="false">โหราศาสตร์สากล</button>
+</div>
+<section id="out" hidden></section>
+<p class="note">เนื้อหาเป็นการคำนวณแบบย่อเพื่อความบันเทิงและชวนสะท้อนคิด ไม่มีหลักฐานทางวิทยาศาสตร์ว่าทำนายอนาคตได้ ไม่ควรใช้ตัดสินใจเรื่องสำคัญ ข้อมูลที่กรอกคำนวณในเบราว์เซอร์ของคุณเท่านั้น ไม่ถูกส่งไปที่ใด</p>
+</main>
+<script>
+const $=i=>document.getElementById(i),mod=(a,n)=>((a%n)+n)%n,UT=Date.UTC;
+let tab="thai",D=null;
+const DAYS=["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"];
+/* ---------- ไทย ---------- */
+const TH=[["อาทิตย์",6,5,"ช่วงสร้างตัวตน หน้าที่การงานเด่น มีผู้ใหญ่อุปถัมภ์"],["จันทร์",15,7,"ช่วงอารมณ์และครอบครัวเด่น ได้รับความเอ็นดู มีโชคเล็กๆ"],["อังคาร",8,3,"ช่วงต้องลุย พลังสูง แต่ระวังใจร้อนและอุบัติเหตุ"],["พุธ",17,6,"ช่วงเรียนรู้ สื่อสาร ค้าขาย เจรจาคล่อง"],["เสาร์",10,2,"ช่วงอดทนฝ่าฟัน งานหนัก ผลมาช้าแต่มั่นคง"],["พฤหัสบดี",19,9,"ช่วงรุ่งเรืองที่สุด มีครูดี ผู้ใหญ่เมตตา ก้าวหน้า"],["ราหู",12,1,"ช่วงผันผวน เรื่องไม่คาดฝัน เปลี่ยนแปลงใหญ่ ต้องตั้งสติ"],["ศุกร์",21,8,"ช่วงสุขสบาย ความรัก ศิลปะ การเงินและความงามเด่น"]];
+function thai(){
+ let w=D.dt.getDay(),i=[0,1,2,3,5,7,4][w];if(w==3&&D.night)i=6;
+ const ps=[];let a=0,s=i;
+ while(a<90){const p=TH[s%8];ps.push({a,b:a+p[1],t:"ดาว"+p[0]+"เสวยอายุ",x:p[3],s:p[2]*10});a+=p[1];s++}
+ return{intro:`<p class="big">เกิดวัน${DAYS[w]}${w==3&&D.night?" (กลางคืน)":""}</p><p class="muted">เริ่มวัยแรกด้วยดาว${TH[i][0]} แล้วเวียนไปตามลำดับดาวเสวยอายุ</p>`,ps,vals:fromPs(ps),yr:a=>{const k=(i+a)%8,p=TH[k];return{t:"ดาวจรประจำปี: "+p[0],x:p[3],b:TB[k]}}}}
+/* ---------- จีน ---------- */
+const ST="甲乙丙丁戊己庚辛壬癸",BR="子丑寅卯辰巳午未申酉戌亥",E5=["ไม้","ไฟ","ดิน","ทอง","น้ำ"],BE=[4,2,0,0,2,1,1,2,3,3,2,4];
+const TM=[[1,6,11],[2,4,0],[3,6,1],[4,5,2],[5,6,3],[6,6,4],[7,7,5],[8,8,6],[9,8,7],[10,8,8],[11,7,9],[12,7,10]];
+const RX=["ธาตุเดียวกับคุณ เพื่อนฝูงและการแข่งขันเด่น","ธาตุที่คุณสร้าง ได้แสดงฝีมือและความคิดสร้างสรรค์","ธาตุที่คุณควบคุม โอกาสด้านเงินทองและทรัพย์สิน","ธาตุที่กดดันคุณ งาน ตำแหน่ง และความรับผิดชอบหนัก","ธาตุที่ส่งเสริมคุณ มีผู้อุปถัมภ์ ได้เรียนรู้ มั่นคง"];
+function bazi(){
+ const{y,m,d,tob,g}=D,bt=UT(y,m-1,d),T=[];
+ for(const Y of[y-1,y,y+1])for(const t of TM)T.push({t:UT(Y,t[0]-1,t[1]),i:t[2]});
+ T.sort((p,q)=>p.t-q.t);
+ let k=0;while(T[k+1].t<=bt)k++;
+ const pv=T[k],nx=T[k+1],by=bt<UT(y,1,4)?y-1:y;
+ const ys=mod(by-4,10),yb=mod(by-4,12),ms=mod((ys%5)*2+2+pv.i,10),mb=mod(2+pv.i,12);
+ const dn=Math.round((bt-UT(2000,0,1))/864e5),ds=mod(4+dn,10),db=mod(6+dn,12);
+ const P=[["ปี",ys,yb],["เดือน",ms,mb],["วัน",ds,db]];
+ if(tob){const hb=Math.floor((+tob.slice(0,2)+1)/2)%12;P.push(["เวลา",mod((ds%5)*2+hb,10),hb])}
+ const dm=ds>>1,rel=e=>mod(e-dm,5);
+ let sup=0,oth=0;
+ P.forEach(p=>{if(p[0]!="วัน"){oth++;const r=rel(p[1]>>1);if(r==0||r==4)sup++}const r=rel(BE[p[2]]);oth++;if(r==0||r==4)sup++});
+ const weak=sup<oth/2,fav=e=>{const r=rel(e);return weak?(r==0||r==4):(r>=1&&r<=3)};
+ const fwd=(ys%2==0)==(g=="m"),dd=fwd?(nx.t-bt)/864e5:(bt-pv.t)/864e5,st=Math.max(1,Math.round(dd/3));
+ const ps=[{a:0,b:st,t:"ก่อนเข้าวัยจร",x:"อิทธิพลหลักมาจากเสาเดือนเกิดและครอบครัว",s:50}];
+ for(let n=1;n<=9;n++){const a=st+(n-1)*10;if(a>=90)break;
+  const s=mod(ms+(fwd?n:-n),10),b=mod(mb+(fwd?n:-n),12),f1=fav(s>>1),f2=fav(BE[b]);
+  ps.push({a,b:a+10,t:`วัยจร ${ST[s]}${BR[b]} (${E5[s>>1]}/${E5[BE[b]]})`,x:(f1&&f2?"เอื้อต่อดวง · ":!f1&&!f2?"ต้องระวัง · ":"ผสมผสาน · ")+RX[rel(s>>1)],s:50+(f1?25:-25)+(f2?15:-15)})}
+ const box=P.map(p=>`<div><span>${p[0]}</span><b>${ST[p[1]]}${BR[p[2]]}</b><span>${E5[p[1]>>1]}</span></div>`).join("");
+ return{intro:`<p class="big">ธาตุประจำตัว: ${E5[dm]} (${ST[ds]})</p><p class="muted">ดวงค่อนข้าง${weak?"อ่อน ต้องการธาตุส่งเสริมและธาตุเดียวกัน":"แข็ง ต้องการธาตุที่ช่วยระบายและควบคุม"} · วัยจรเริ่มอายุ ${st} ปี ${fwd?"เดินหน้า":"ถอยหลัง"}</p><div class="pillars" style="grid-template-columns:repeat(${P.length},1fr)">${box}</div>`,ps,vals:fromPs(ps),yr:a=>{const Y=by+a,s=mod(Y-4,10),b=mod(Y-4,12),f1=fav(s>>1),r=rel(s>>1),cl=mod(b-db,12)==6;return{t:`ปี ${ST[s]}${BR[b]} (${E5[s>>1]}/${E5[BE[b]]})`,x:RX[r]+(cl?" · กิ่งปีชนกับกิ่งวันเกิด ระวังการเปลี่ยนแปลงฉับพลันและสุขภาพ":""),b:BZB[r].map((v,k)=>v+(f1?1:-1)+(cl&&k>1?-1:0))}}}}
+/* ---------- เลขศาสตร์ ---------- */
+const PN={1:"เริ่มต้นด้วยตนเอง เป็นผู้นำ",2:"ร่วมมือ ความสัมพันธ์ ความอ่อนโยน",3:"สร้างสรรค์ สื่อสาร สนุกสนาน",4:"วางรากฐาน วินัย ทำงานหนัก",5:"เปลี่ยนแปลง เดินทาง เสรีภาพ",6:"ครอบครัว ความรับผิดชอบ ดูแลผู้อื่น",7:"ค้นหาความหมาย ศึกษา มองเข้าข้างใน",8:"อำนาจ เงิน ความสำเร็จทางโลก",9:"ปล่อยวาง เสียสละ มองภาพใหญ่",11:"แรงบันดาลใจและสัญชาตญาณสูง",22:"สร้างสิ่งยิ่งใหญ่ ผู้สร้างระดับมาสเตอร์"};
+const BASE={1:70,2:60,3:80,4:55,5:75,6:80,7:65,8:70,9:75,11:78,22:80};
+const ds_=n=>[...""+n].reduce((a,b)=>a+ +b,0),R=n=>{while(n>9&&n!=11&&n!=22)n=ds_(n);return n},S=n=>{while(n>9)n=ds_(n);return n};
+function num(){
+ const m=R(D.m),d=R(D.d),y=R(D.y),lp=R(m+d+y),ls=S(lp),e1=36-ls;
+ const p=[R(m+d),R(d+y)];p.push(R(p[0]+p[1]));p.push(R(m+y));
+ const sm=S(m),sd=S(d),sy=S(y),c=[Math.abs(sm-sd),Math.abs(sd-sy)];c.push(Math.abs(c[0]-c[1]));c.push(Math.abs(sm-sy));
+ const B=[0,e1,e1+9,e1+18,e1+27,90],ps=p.map((v,i)=>({a:B[i],b:i==3?90:B[i+1],t:`ยอดเลข ${v}`,x:PN[v]+` · ความท้าทายเลข ${c[i]}`,s:Math.max(10,BASE[v]-c[i]*3)}));
+ ps[3].b=90;
+ return{intro:`<p class="big">เลขเส้นทางชีวิต ${lp}</p><p class="muted">${PN[lp]} · ช่วงยอดเลขแรกจบที่อายุ ${e1} ปี</p>`,ps,vals:fromPs(ps),yr:a=>{const q=S(D.m+D.d+ds_(D.y+a));return{t:"ปีส่วนตัวเลข "+q,x:PY[q-1][0],b:PY[q-1][1]}}}}
+/* ---------- สากล ---------- */
+const SG=[[120,"กุมภ์",3],[219,"มีน",4],[321,"เมษ",1],[420,"พฤษภ",2],[521,"เมถุน",3],[621,"กรกฎ",4],[723,"สิงห์",1],[823,"กันย์",2],[923,"ตุลย์",3],[1023,"พิจิก",4],[1122,"ธนู",1],[1222,"มังกร",2]];
+const EL={1:["ไฟ","มุ่งมั่น กล้า ลุย"],2:["ดิน","มั่นคง ใช้ได้จริง"],3:["ลม","ช่างคิด ช่างสื่อสาร"],4:["น้ำ","อ่อนไหว ลึกซึ้ง"]};
+function west(){
+ const key=D.m*100+D.d;let s=SG[11];for(const q of SG)if(q[0]<=key)s=q;
+ const ev=[],add=(a,t,x,w)=>{if(a<=90)ev.push({a:+a.toFixed(1),b:+a.toFixed(1),t,x,w,e:1})};
+ for(let k=1;k<=7;k++)add(k*11.86,"ดาวพฤหัสกลับที่เดิม","รอบแห่งโอกาส การขยายตัว และโชคดี",20);
+ [7.4,14.7,22.1,29.5,36.8,44.2,51.6,58.9,66.3,73.6,81,88.4].forEach((a,i)=>add(a,i%4==3?"ดาวเสาร์กลับที่เดิม":i%2?"ดาวเสาร์ตรงข้ามตำแหน่งเดิม":"ดาวเสาร์ทำมุมฉาก",i%4==3?"บททดสอบใหญ่ของการเติบโต รับผิดชอบเต็มตัว":"ช่วงกดดัน ต้องปรับตัวและจัดระเบียบชีวิต",i%4==3?-24:-15));
+ add(42,"ดาวมฤตยูตรงข้ามตำแหน่งเดิม","วิกฤตวัยกลางคน ปรารถนาเปลี่ยนชีวิต",-10);
+ add(50.5,"ดาวไครอนกลับที่เดิม","เยียวยาบาดแผลเก่า ค้นพบคุณค่าของตนเอง",-6);
+ [18.6,37.2,55.8,74.4].forEach(a=>add(a,"จุดเปลี่ยนราหู-เกตุ","ทิศทางชีวิตหักเหตามเส้นทางที่ถูกกำหนดไว้",6));
+ ev.sort((p,q)=>p.a-q.a);
+ const vals=Array.from({length:91},(_,a)=>Math.max(8,Math.min(95,55+ev.reduce((t,e)=>t+e.w*Math.exp(-((a-e.a)**2)/(2*1.5**2)),0))));
+ return{intro:`<p class="big">ราศี${s[1]} · ธาตุ${EL[s[2]][0]}</p><p class="muted">ลักษณะเด่น ${EL[s[2]][1]} · กราฟนี้ใช้รอบดาวใหญ่ตามอายุ (ไม่รวมตำแหน่งดาวเฉพาะตัวที่ต้องใช้เวลาและสถานที่เกิด)</p>`,ps:ev,vals,yr:a=>{const h=HW[a%12];return{t:`ปีประจำเรือน ${a%12+1}: ${h[0]}`,x:h[1],b:h[2]}}}}
+/* ---------- รายปี ---------- */
+let CUR;
+const TB=[[2,1,1,-1],[0,0,0,2],[1,0,-2,-1],[1,1,0,0],[1,-1,-1,-1],[2,2,1,1],[-1,-2,-1,0],[0,2,0,2]];
+const BZB=[[0,-1,0,1],[1,0,1,0],[0,2,0,0],[1,-1,-1,0],[1,0,1,0]];
+const PY=[["ปีเริ่มต้นรอบใหม่ กล้าตัดสินใจและลงมือเริ่มสิ่งใหม่ด้วยตัวเอง",[2,1,0,0]],["ปีแห่งความร่วมมือและความอดทน เรื่องดีค่อยๆ เติบโต เน้นความสัมพันธ์",[0,0,0,2]],["ปีแห่งการสร้างสรรค์และการเข้าสังคม แสดงออกได้ดี",[1,1,1,2]],["ปีวางรากฐาน ต้องทำงานหนักและมีวินัย ผลดีสะสมระยะยาว",[2,1,-1,-1]],["ปีแห่งการเปลี่ยนแปลง ข่าวใหม่ การเดินทาง ระวังความไม่แน่นอน",[0,-1,0,1]],["ปีแห่งครอบครัวและความรับผิดชอบ ดูแลคนรักและบ้าน",[0,0,1,2]],["ปีแห่งการพักและทบทวน เหมาะเรียนรู้ ใคร่ครวญ อยู่กับตัวเอง",[0,-1,1,-1]],["ปีแห่งอำนาจและเงินทอง ความสำเร็จทางโลกมาพร้อมแรงกดดัน",[1,2,-1,-1]],["ปีปิดรอบ ปล่อยของเก่าที่ไม่ใช่ เตรียมเริ่มรอบใหม่",[-1,-1,0,0]]];
+const HW=[["ตัวตนและร่างกาย","เรื่องของตัวคุณเป็นศูนย์กลาง เหมาะเริ่มต้นใหม่และปรับภาพลักษณ์",[1,0,1,0]],["เงินและทรัพย์สิน","เน้นหารายได้ จัดการทรัพย์สินและสิ่งที่คุณให้คุณค่า",[0,2,0,0]],["การเรียนรู้และการสื่อสาร","ข่าวสาร การเดินทางใกล้ๆ พี่น้อง และการเรียนรู้เด่น",[2,0,0,0]],["บ้านและครอบครัว","เรื่องที่อยู่อาศัยและครอบครัวเรียกร้องเวลา",[-1,0,0,1]],["ความรักและความสร้างสรรค์","ความสนุก ความรัก ลูก และงานอดิเรกเบ่งบาน",[0,0,0,2]],["งานประจำและสุขภาพ","งานหนักและกิจวัตรเยอะ ต้องดูแลสุขภาพ",[1,0,-1,0]],["คู่ครองและหุ้นส่วน","ความสัมพันธ์ใกล้ชิดและการร่วมมือเป็นหัวข้อหลัก",[0,0,0,2]],["การเปลี่ยนแปลงและทรัพย์ร่วม","เรื่องหนี้ มรดก การเงินร่วมกัน และการเปลี่ยนแปลงลึกๆ",[-1,1,-1,-1]],["การเดินทางและปัญญา","เปิดโลกกว้าง เรียนต่อ เดินทางไกล ความเชื่อใหม่",[1,0,0,0]],["อาชีพและชื่อเสียง","หน้าที่การงานเด่นที่สุดในรอบ 12 ปี ถูกจับตามอง",[2,1,0,-1]],["เพื่อนและเครือข่าย","เพื่อนและกลุ่มสังคมนำโอกาสมาให้ ความหวังเติบโต",[1,1,0,1]],["การพักและสิ่งซ่อนเร้น","ปีเงียบ ปล่อยวาง จัดการเรื่องค้างคาใจ ระวังความเหนื่อยล้า",[-1,-1,-1,0]]];
+const BK={
+ov:["ปีที่ควรเดินช้าลงและรักษาแรง อย่าเร่งตัดสินใจเรื่องใหญ่ ทำพื้นฐานให้แน่นแล้วจะผ่านไปได้","ปีทรงตัว มีทั้งจังหวะดีและเรื่องให้ปรับตัว ผลลัพธ์ขึ้นกับความสม่ำเสมอของคุณ","ปีที่ลมส่ง โอกาสเข้ามาง่ายกว่าปกติ เหมาะกับการเริ่มสิ่งที่ผัดมานาน"],
+ws:["เรียนแล้วรู้สึกติดขัด ควรทบทวนวิธีเรียนและขอความช่วยเหลือจากครูหรือเพื่อน","ผลการเรียนเป็นไปตามความพยายาม วางตารางอ่านหนังสือให้สม่ำเสมอจะช่วยได้มาก","สมาธิและความจำดี เหมาะกับการสอบหรือเริ่มเรียนเรื่องใหม่"],
+wc:["งานมีอุปสรรคหรือแรงกดดัน เลี่ยงการลาออกหรือขัดแย้งกับผู้ใหญ่ เก็บประสบการณ์ไว้ก่อน","งานราบรื่นพอควร ค่อยๆ สะสมผลงาน ยังไม่ใช่ปีของการเปลี่ยนใหญ่","มีโอกาสเลื่อนขั้น ได้รับการยอมรับ หรือเริ่มโปรเจกต์ใหม่ได้ดี"],
+mo:["รายจ่ายมีแนวโน้มเกินคาด เลี่ยงการลงทุนเสี่ยงและการค้ำประกัน เก็บเงินสำรองไว้","การเงินทรงตัว ควรจดรายรับรายจ่ายและไม่ใช้เกินตัว","มีช่องทางหารายได้เพิ่มหรือโชคทางการเงิน แต่ควรออมส่วนหนึ่งไว้ด้วย"],
+he:["สุขภาพต้องใส่ใจเป็นพิเศษ นอนให้พอ ระวังอุบัติเหตุและความเครียดสะสม ควรตรวจสุขภาพประจำปี","สุขภาพโดยรวมปกติ รักษาการกินและการออกกำลังกายให้สม่ำเสมอ","ร่างกายและจิตใจฟื้นตัวดี เหมาะเริ่มนิสัยสุขภาพใหม่"],
+lo:["ความสัมพันธ์ตึงเครียดง่าย ระวังคำพูดและความเข้าใจผิด ถ้าโสดอย่าเพิ่งรีบผูกพัน","ความรักไปตามปกติ ใส่เวลาคุณภาพให้คนสำคัญ ถ้าโสดมีโอกาสรู้จักคนผ่านเพื่อนหรือที่ทำงาน","ปีแห่งความรักและความเข้าใจ คนโสดมีโอกาสพบคนถูกใจ คนมีคู่ความสัมพันธ์แน่นแฟ้น"],
+lf:["อาจมีเรื่องไม่เข้าใจกันกับคนใกล้ตัว ควรคุยกับผู้ใหญ่ที่ไว้ใจ","ความสัมพันธ์กับครอบครัวและเพื่อนเป็นปกติ","ได้รับความรักความเอ็นดูมาก และมีเพื่อนดี"],
+mc:Array(3).fill("เรื่องเงินขึ้นกับครอบครัวเป็นหลัก ฝึกออมเงินเล็กๆ น้อยๆ เป็นนิสัย")};
+function setYear(a){
+ const r=CUR,y=r.yr(a),base=1+r.vals[a]/100*4,cl=v=>Math.max(1,Math.min(5,Math.round(v))),s=y.b.map(b=>cl(base+b*.7)),ov=cl(s.reduce((p,q)=>p+q,0)/4),lv=v=>v<=2?0:v==3?1:2;
+ const A=[["ภาพรวม",ov,BK.ov],[a<22?"การเรียน":a<60?"การงาน":"การงานและกิจกรรม",s[0],a<22?BK.ws:BK.wc],["การเงิน",s[1],a<15?BK.mc:BK.mo],["สุขภาพ",s[2],BK.he],[a<13?"ครอบครัวและเพื่อน":"ความรัก",s[3],a<13?BK.lf:BK.lo]];
+ $("ys").value=a;
+ $("yd").innerHTML=`<p class="muted">ปี ค.ศ. ${D.y+a} · พ.ศ. ${D.y+a+543}</p><p class="big">${y.t}</p><p>${y.x}</p>`+A.map(q=>`<div class="as"><div><span>${q[0]}</span><span class="st" role="img" aria-label="${q[1]} จาก 5">${"★".repeat(q[1])}${"☆".repeat(5-q[1])}</span></div><p>${q[2][lv(q[1])]}</p></div>`).join("");
+}
+/* ---------- แสดงผล ---------- */
+function fromPs(ps){return Array.from({length:91},(_,a)=>(ps.find(p=>a>=p.a&&a<p.b)||ps[ps.length-1]).s)}
+function chart(v,now){
+ const W=640,H=260,L=30,Rr=10,T=12,B=28,x=a=>L+a/90*(W-L-Rr),y=s=>T+(100-s)/100*(H-T-B);
+ const pts=v.map((s,a)=>x(a).toFixed(1)+","+y(s).toFixed(1)),path="M"+pts.join("L");
+ let g="";[25,50,75].forEach(s=>g+=`<line class="ax" x1="${L}" x2="${W-Rr}" y1="${y(s)}" y2="${y(s)}"/>`);
+ for(let a=0;a<=90;a+=10)g+=`<text class="tx" x="${x(a)}" y="${H-8}" text-anchor="middle">${a}</text>`;
+ g+=`<text class="tx" x="2" y="${y(88)}">สูง</text><text class="tx" x="2" y="${y(10)}">ต่ำ</text>`;
+ let n="";if(now>=0&&now<=90)n=`<line class="nw" x1="${x(now)}" x2="${x(now)}" y1="${T}" y2="${H-B}"/><circle cx="${x(now)}" cy="${y(v[Math.round(now)])}" r="5" fill="var(--teal)"/>`;
+ return`<svg id="sv" viewBox="0 0 ${W} ${H}" role="img" aria-label="กราฟชีวิตตามอายุ 0 ถึง 90 ปี">${g}<path class="ar" d="${path}L${x(90)},${y(0)}L${x(0)},${y(0)}Z"/><path class="ln" d="${path}"/>${n}</svg><p id="rd">เลื่อนบนกราฟเพื่อดูระดับตามอายุ แตะเพื่อดูรายละเอียดของปีนั้น (แกนนอน = อายุ ปี)</p>`}
+function show(){
+ if(!D)return;
+ const r=({thai,bazi,num,west})[tab](),age=D.age;
+ const cur=r.ps.find(p=>p.e?Math.abs(age-p.a)<=1.5:age>=p.a&&age<p.b);
+ const rows=r.ps.map(p=>{const now=p===cur,rg=p.e?`อายุ ~${p.a}`:`${p.a}–${Math.min(p.b,90)} ปี`;
+  return`<li class="r${now?" now":""}"><div class="ag">${rg}</div><div><b>${p.t}</b><p>${p.x}</p></div>${p.e?"":`<i class="${p.s<45?"lo":""}" style="--w:${p.s}%"></i>`}</li>`}).join("");
+ const sum=cur?`<p class="muted" style="margin-top:10px">ตอนนี้คุณอายุราว ${Math.floor(age)} ปี อยู่ในช่วง “${cur.t}”</p>`:"";
+ $("out").innerHTML=`<div class="card">${r.intro}${sum}</div><div class="card">${chart(r.vals,age)}</div><div class="card"><h2>รายละเอียดรายปี</h2><p class="muted">เลือกอายุ หรือแตะบนกราฟ · คำอธิบายสร้างจากช่วงชีวิตรวมกับวงจรประจำปีของแต่ละศาสตร์ เป็นแนวโน้มทั่วไป</p><div class="yh"><button type="button" id="yp" aria-label="ปีก่อนหน้า">‹</button><select id="ys" aria-label="เลือกอายุ">${Array.from({length:91},(_,a)=>`<option value="${a}">อายุ ${a} ปี (พ.ศ. ${D.y+a+543})</option>`).join("")}</select><button type="button" id="yn" aria-label="ปีถัดไป">›</button></div><div id="yd"></div></div><div class="card"><ol>${rows}</ol></div>`;
+ CUR=r;$("ys").onchange=e=>setYear(+e.target.value);$("yp").onclick=()=>setYear(Math.max(0,+$("ys").value-1));$("yn").onclick=()=>setYear(Math.min(90,+$("ys").value+1));setYear(Math.max(0,Math.min(90,Math.floor(age))));
+ $("out").hidden=false;
+ const sv=$("sv");
+ const mv=e=>{const b=sv.getBoundingClientRect(),px=(e.clientX-b.left)/b.width*640,a=Math.max(0,Math.min(90,Math.round((px-30)/600*90)));
+  $("rd").textContent=`อายุ ${a} ปี · ระดับ ${Math.round(r.vals[a])}/100`;return a};
+ sv.addEventListener("pointermove",mv);sv.addEventListener("pointerdown",e=>setYear(mv(e)));
+}
+$("f").addEventListener("submit",e=>{
+ e.preventDefault();
+ const[v1,v2,v3]=$("dob").value.split("-").map(Number);
+ D={y:v1,m:v2,d:v3,dt:new Date(v1,v2-1,v3),tob:$("tob").value,g:$("g").value,night:$("night").checked};
+ D.age=(Date.now()-D.dt)/31557600000;
+ show();$("out").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
+});
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+ tab=b.dataset.t;document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));show();
+}));
+</script>
+</body>
+</html>
